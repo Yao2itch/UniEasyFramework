@@ -26,19 +26,29 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Assets\Plugins\</OutputPath>
+    <OutputPath>..\Project\Assets\Plugins\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\ThirdPlugins\UnityEngine.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPlugins\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\ThirdPlugins\UnityEngine.UI.dll</HintPath>
+    <Reference Include="System" />
+    <Reference Include="UniCommPlugin">
+      <HintPath>..\ThirdPlugins\UniCommPlugin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\ThirdPlugins\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\ThirdPlugins\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -55,14 +65,8 @@
     <Compile Include="Src\InputHelper.cs" />
     <Compile Include="Src\InputSystem.cs" />
     <Compile Include="Src\KeyboardInputMgr.cs" />
+    <Compile Include="Src\ModuleData.cs" />
     <Compile Include="Src\MonoModule.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\CommonPlugin\CommonPlugin\CommonPlugin.csproj">
-      <Project>{83025f39-4eee-4bc3-a110-22a1b554ce57}</Project>
-      <Name>CommonPlugin</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

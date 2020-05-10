@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,11 @@ namespace EasyFramework
 
     public interface IModule
     {
+        ModuleData Data { get; set; }
         InputSystem InputSysm { get; set; }
         FeedbackDelegate FeedBackCallback { get; set; }
         List<EasyEvent> Evts { get; set; }
+        void Parse(JObject jObj);
         void Initialize();
         void Release();
         void CreateEvt( string evtName );

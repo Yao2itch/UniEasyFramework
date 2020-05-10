@@ -4,11 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json.Linq;
 
 namespace EasyFramework
 {
     public class MonoModule<T> : MonoSingletonBase<T> , IModule where T : MonoBehaviour
     {
+        private ModuleData _data;
+        public ModuleData Data
+        {
+            get { return _data; }
+            set { _data = value; }
+        }
+
         private List<EasyEvent> _evts = new List<EasyEvent>();
         public List<EasyEvent> Evts
         {
@@ -56,6 +64,8 @@ namespace EasyFramework
 
         public virtual void Initialize()
         {
+            _data = new ModuleData();
+
             Debug.Log(" ## Uni Output ## cls:MonoModule func:Initialize info: Module Init !! ");
         }
 
@@ -151,6 +161,14 @@ namespace EasyFramework
                 {
                     Debug.LogError("## Uni Output ## cls:MonoModule func:PublishEvt info:Publish Evt Failed " + evtName);
                 }
+            }
+        }
+
+        public void Parse(JObject jObj)
+        {
+            if( _data != null )
+            {
+                _data.Parse(jObj);
             }
         }
     }

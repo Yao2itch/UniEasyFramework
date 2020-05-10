@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace EasyFramework
@@ -33,8 +34,17 @@ namespace EasyFramework
             set;
         }
 
+        private ModuleData _data;
+        public ModuleData Data
+        {
+            get{ return _data;  }
+            set{ _data = value; }
+        }
+
         public virtual void Initialize()
         {
+            _data = new ModuleData();
+
             Debug.Log(" ## Uni Output ## cls:CommModule func:Initialize info: Module Init !! ");
         }
         
@@ -148,6 +158,13 @@ namespace EasyFramework
                 }
             }
         }
-        
+
+        public void Parse(JObject jObj)
+        {
+            if( _data != null )
+            {
+                _data.Parse(jObj);
+            }
+        }
     }
 }

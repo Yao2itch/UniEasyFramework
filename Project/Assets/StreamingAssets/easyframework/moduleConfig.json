@@ -1,0 +1,32 @@
+{
+ "Modules":[
+	{
+	  "Name" : "登录模块",
+	  "Assembly" : "",
+	  "Class" : "LoginController",
+	  "Mode" : "Common",
+	  "Author" : "Yao",
+	  "CreateTime" : "xxxx.xx.xx",
+	  "UpdateTime" : "xxxx.xx.xx",
+	  "Dlls":[],
+	  "Resources":[],
+	  "Events":[
+		"LoginComplete"
+	  ]
+	},
+	{
+	  "Name" : "会议模块",
+	  "Assembly" : "",
+	  "Class" : "WorkshopController",
+	  "Mode" : "Common",
+	  "Author" : "Huang",
+	  "CreateTime" : "xxxx.xx.xx",
+	  "UpdateTime" : "xxxx.xx.xx",
+	  "Dlls":[],
+	  "Resources":[]
+	  "Events":[
+		"ReceiveMeetMsg"
+	  ]
+	}
+ ]
+}
