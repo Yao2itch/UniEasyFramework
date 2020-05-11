@@ -41,9 +41,20 @@ namespace EasyFramework
             set{ _data = value; }
         }
 
-        public virtual void Initialize()
+        public CommModule()
         {
             _data = new ModuleData();
+        }
+
+        public virtual void Initialize()
+        {
+            if( _data != null )
+            {
+                for( int i = 0; i < _data.ModuleEvents.Count; ++i )
+                {
+                    CreateEvt( _data.ModuleEvents[i] );
+                }
+            }
 
             Debug.Log(" ## Uni Output ## cls:CommModule func:Initialize info: Module Init !! ");
         }
@@ -61,10 +72,12 @@ namespace EasyFramework
             if ( evts != null 
                 && evts.Find( e => e.Name == name ) == null )
             {
+                Debug.Log( " ## Uni Output ## cls:CommModule func:CreateEvt info: evt name " + name );
+
                 EasyEvent evt = new EasyEvent();
                 evt.Name = name;
                 evt.Source = this;
-
+                
                 evts.Add( evt );
             }
             else

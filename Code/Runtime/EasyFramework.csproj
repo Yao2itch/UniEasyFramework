@@ -38,18 +38,30 @@
       <HintPath>..\ThirdPlugins\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\ThirdPlugins\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="UniCommPlugin">
       <HintPath>..\ThirdPlugins\UniCommPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UniCommPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\ThirdPlugins\UniCommPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\ThirdPlugins\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\ThirdPlugins\UnityEngine.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\ThirdPlugins\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\ThirdPlugins\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

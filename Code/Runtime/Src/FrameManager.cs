@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -102,32 +103,34 @@ namespace EasyFramework
                                     JToken token = null;
 
                                     string moduleAssembly = string.Empty;
-                                    string moduleType = string.Empty;
+                                    string moduleClass = string.Empty;
 
-                                    if ( obj.TryGetValue( "Assembly", out token ) )
+                                    if ( obj.TryGetValue("AssemblyName", out token ) )
                                     {
                                         moduleAssembly = token.ToString();
                                     }
 
-                                    if ( obj.TryGetValue( "Type", out token ) )
+                                    if ( obj.TryGetValue("Class", out token ) )
                                     {
-                                        moduleType = token.ToString();
+                                        moduleClass = token.ToString();
                                     }
 
                                     if ( obj.TryGetValue( "Mode", out token ) )
                                     {
                                         string strMode = token.ToString();
+
                                         if( !string.IsNullOrEmpty( strMode ) )
                                         {
                                             if ( strMode.Equals("Common") )
                                             {
-                                                CommModule commModule = Activator.CreateInstance( Type.GetType( moduleAssembly + moduleType ) ) as CommModule;
+                                                CommModule commModule = Activator.CreateInstance(moduleAssembly, moduleClass).Unwrap() as CommModule;
+
                                                 if( commModule != null )
                                                 {
                                                     commModule.Parse(obj);
                                                 }
 
-                                                if( !_moduleSet.Contains( commModule ) )
+                                                if ( !_moduleSet.Contains( commModule ) )
                                                 {
                                                     _moduleSet.Add( commModule );
                                                 }

@@ -1,15 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using EasyFramework;
 using UnityEngine;
 
 public class LoginController : CommModule {
-
-	void Start () {
-		
-	}
 	
-	void Update () {
+	public override void Initialize()
+	{
+		base.Initialize();
 		
+		Debug.Log( " ## Uni Output ## cls:LoginController func:Initialize info: init login controller " );
 	}
 }

@@ -38,7 +38,7 @@ namespace EasyFramework
                 ModuleName = token.ToString();
             }
             
-            if (jObj.TryGetValue("Assembly", out token))
+            if (jObj.TryGetValue("AssemblyName", out token))
             {
                 ModuleAssembly = token.ToString();
             }
